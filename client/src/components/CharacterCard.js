@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Card } from 'semantic-ui-react'
 
-class Character extends Component {
+class CharacterCard extends Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -37,7 +37,7 @@ class Character extends Component {
           </Card.Header>
           <Card.Meta>
             Appeared in
-            <strong>{this.state.films.length}</strong> {this.state.films.length ===
+            <strong>{this.state.films ? this.state.films.length : undefined}</strong> {this.state.films && this.state.films.length ===
           1 ? 'film' : 'films'}
           </Card.Meta>
           <Card.Description>
@@ -49,4 +49,4 @@ class Character extends Component {
   }
 }
 
-export default Character
+export default CharacterCard

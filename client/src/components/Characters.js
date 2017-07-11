@@ -1,11 +1,8 @@
 import React, { Component } from 'react'
-import { Card, Container, Header , Dimmer, Loader} from 'semantic-ui-react'
+import { Card, Container, Header, Dimmer, Loader } from 'semantic-ui-react'
 import CharacterCard from './CharacterCard'
 
-class People extends Component {
-
-
-
+class Characters extends Component {
 
   render () {
     return (
@@ -14,10 +11,11 @@ class People extends Component {
         <Card.Group>
           {
             this.props.loadingCharacters
-            ? <Dimmer active={this.props.loadingCharacters}>
+              ? <Dimmer active={this.props.loadingCharacters}>
               <Loader>Loading Characters</Loader>
             </Dimmer>
-              :this.props.characters.map(person => {
+              : this.props.characters.filter(character=>character.name.toLowerCase().includes(this.props.filteredValue)).
+            map(person => {
                 return (<CharacterCard
                   key={person.url}
                   {...this.props}
@@ -27,10 +25,11 @@ class People extends Component {
           }
         </Card.Group>
       </Container>
-
     )
   }
 }
 
-export default People
+
+
+export default Characters
 

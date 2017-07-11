@@ -13,10 +13,12 @@ class App extends Component {
       activeCharacter: undefined,
       activeFilms: undefined,
       loadingCharacters: false,
-      loadingMovies: false
+      loadingMovies: false,
+      filteredValue: ''
     }
     this.toggleModal = this.toggleModal.bind(this)
     this.activateCharacter = this.activateCharacter.bind(this)
+    this.onSearchChange = this.onSearchChange.bind(this)
   }
 
   toggleModal (modalStatus) {
@@ -49,6 +51,13 @@ class App extends Component {
     })
   }
 
+  onSearchChange (e, {value}) {
+    console.log('onSearchChange:value', value)
+    this.setState({
+      filteredValue: String.prototype.toLowerCase.call(value)
+    })
+  }
+
   componentDidMount () {
     this.setState({
       loadingCharacters: true
@@ -64,14 +73,17 @@ class App extends Component {
   }
 
   render () {
+    console.log('what is this.state', this.state)
     return (
       <div>
-        <Header {...this.props}>
+        <Header {...this.props} onSearchChange={this.onSearchChange}>
           <Characters {...this.props}
                       characters={this.state.characters}
                       toggleModal={this.toggleModal}
                       activateCharacter={this.activateCharacter}
                       loadingCharacters={this.state.loadingCharacters}
+                      filteredValue={this.state.filteredValue}
+
           />
         </Header>
         <MoviesModal {...this.props}
