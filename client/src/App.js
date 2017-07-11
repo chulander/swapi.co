@@ -53,7 +53,6 @@ class App extends Component {
   }
 
   onSearchChange (e, {value}) {
-    console.log('onSearchChange:value', value)
     this.setState({
       filteredValue: String.prototype.toLowerCase.call(value)
     })
