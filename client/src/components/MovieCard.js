@@ -13,7 +13,6 @@ class MovieCard extends Component {
     }
   }
 
-
   render () {
     return (
       <Card>
