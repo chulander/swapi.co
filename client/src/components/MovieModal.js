@@ -1,11 +1,17 @@
 import React from 'react'
-import { Button, Modal, Card ,Dimmer,Loader} from 'semantic-ui-react'
+import { Button, Card, Dimmer, Loader, Modal } from 'semantic-ui-react'
 import MovieCard from './MovieCard'
+
 const MovieModal = (props) => {
-  return <Modal size='large' open={props.modalOpen}
-                onClose={() => props.toggleModal(false)}>
+  return <Modal
+    size='large'
+    open={props.modalOpen}
+
+    onClose={() => props.toggleModal(false)}>
     <Modal.Header>
-      Movies including the character "{props.activeCharacter ? props.activeCharacter.name : ''}"
+      Movies including the character "{props.activeCharacter
+      ? props.activeCharacter.name
+      : ''}"
     </Modal.Header>
     <Modal.Content>
       <Card.Group>

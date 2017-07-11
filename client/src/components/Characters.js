@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Card, Container, Header, Dimmer, Loader } from 'semantic-ui-react'
+import { Card, Container, Dimmer, Header, Loader } from 'semantic-ui-react'
 import CharacterCard from './CharacterCard'
 
 class Characters extends Component {

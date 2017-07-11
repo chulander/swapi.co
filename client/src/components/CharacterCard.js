@@ -23,9 +23,8 @@ class CharacterCard extends Component {
       this.props.activateCharacter(this.state, filmDetails)
     }).
     catch(err => {
-      console.error('what is films error', err.stack)
+      console.error('listMovies: Promise.catch error', err.stack)
     })
-
   }
 
   render () {
@@ -37,8 +36,13 @@ class CharacterCard extends Component {
           </Card.Header>
           <Card.Meta>
             Appeared in
-            <strong>{this.state.films ? this.state.films.length : undefined}</strong> {this.state.films && this.state.films.length ===
-          1 ? 'film' : 'films'}
+            <strong>{this.state.films
+              ? this.state.films.length
+              : undefined}
+            </strong>
+            {this.state.films && this.state.films.length === 1
+              ? 'film'
+              : 'films'}
           </Card.Meta>
           <Card.Description>
             <strong>height</strong>: {this.state.height}

@@ -4,6 +4,7 @@ import './App.css'
 import Characters from './components/Characters'
 import Header from './components/Header'
 import MoviesModal from './components/MovieModal'
+
 class App extends Component {
   constructor (props) {
     super(props)
@@ -68,12 +69,12 @@ class App extends Component {
         loadingCharacters: false
       })
     }).catch(err => {
-      console.error(`recursive people fetch error`, err.stack)
+      console.error(`recursiveApiFetch: componentDidMount catch error`,
+        err.stack)
     })
   }
 
   render () {
-    console.log('what is this.state', this.state)
     return (
       <div>
         <Header {...this.props} onSearchChange={this.onSearchChange}>
@@ -93,7 +94,6 @@ class App extends Component {
                      activeFilms={this.state.activeFilms}
                      loadingMovies={this.state.loadingMovies}
         />
-
       </div>
     )
   }
